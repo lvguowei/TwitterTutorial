@@ -14,15 +14,35 @@ class MainTabController: UITabBarController {
     // MARK: - Helpers
     func configureViewControllers() {
         let feed = FeedController()
-        feed.tabBarItem.image = UIImage(named: "home_unselected")
-        let explore = ExploreController()
-        explore.tabBarItem.image = UIImage(named: "search_unselected")
-        let notifications = NotificationsController()
-        notifications.tabBarItem.image = UIImage(named: "")
-        let conversations = ConversationsController()
-        conversations.tabBarItem.image = UIImage(named: "")
+        let nav1 = templateNavigationController(
+            image: UIImage(named: "home_unselected"), rootViewController: feed)
 
-        viewControllers = [feed, explore, notifications, conversations]
+        let explore = ExploreController()
+        let nav2 = templateNavigationController(
+            image: UIImage(named: "search_unselected"), rootViewController: explore)
+        let notifications = NotificationsController()
+        let nav3 = templateNavigationController(
+            image: UIImage(named: "search_unselected"), rootViewController: notifications)
+        let conversations = ConversationsController()
+        let nav4 = templateNavigationController(
+            image: UIImage(named: "like_unselected"), rootViewController: conversations)
+
+        viewControllers = [nav1, nav2, nav3, nav4]
+    }
+
+    func templateNavigationController(image: UIImage?, rootViewController: UIViewController)
+        -> UINavigationController
+    {
+        let nav = UINavigationController(rootViewController: rootViewController)
+
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        nav.navigationBar.standardAppearance = appearance
+        nav.navigationBar.scrollEdgeAppearance = nav.navigationBar.standardAppearance
+
+        nav.tabBarItem.image = image
+        return nav
     }
 
 }
