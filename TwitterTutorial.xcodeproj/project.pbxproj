@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3638EA12293DF04F00EE1613 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3638EA11293DF04F00EE1613 /* Extensions.swift */; };
 		363CEFB229389B9B00BFD2BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CEFB129389B9B00BFD2BD /* AppDelegate.swift */; };
 		363CEFB429389B9B00BFD2BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CEFB329389B9B00BFD2BD /* SceneDelegate.swift */; };
 		363CEFB629389B9B00BFD2BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CEFB529389B9B00BFD2BD /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3638EA11293DF04F00EE1613 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		363CEFAE29389B9B00BFD2BD /* TwitterTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		363CEFB129389B9B00BFD2BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		363CEFB329389B9B00BFD2BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		363CEFC529389C2B00BFD2BD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3638EA11293DF04F00EE1613 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				363CEFD42938A3F400BFD2BD /* ConversationsController.swift in Sources */,
 				363CEFB429389B9B00BFD2BD /* SceneDelegate.swift in Sources */,
 				363CEFCC29389D1F00BFD2BD /* MainTabController.swift in Sources */,
+				3638EA12293DF04F00EE1613 /* Extensions.swift in Sources */,
 				363CEFD22938A3D700BFD2BD /* NotificationsController.swift in Sources */,
 				363CEFCE2938A36D00BFD2BD /* FeedController.swift in Sources */,
 				363CEFD02938A3C200BFD2BD /* ExploreController.swift in Sources */,
