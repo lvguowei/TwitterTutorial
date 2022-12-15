@@ -5,6 +5,7 @@
 //  Created by Guowei Lv on 5.12.2022.
 //
 
+import Firebase
 import UIKit
 
 class RegistrationController: UIViewController {
@@ -94,7 +95,14 @@ class RegistrationController: UIViewController {
     }
 
     @objc func handleSignUp() {
-
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print(error)
+                return
+            }
+        }
     }
 
     @objc func handleAddProfilePhoto() {
@@ -141,7 +149,7 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
     ) {
         guard let profileImage = info[.editedImage] as? UIImage else { return }
-        
+
         plusPhotoButton.layer.cornerRadius = 128 / 2
         plusPhotoButton.layer.masksToBounds = true
         plusPhotoButton.imageView?.contentMode = .scaleAspectFill
@@ -149,7 +157,6 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         plusPhotoButton.layer.borderColor = UIColor.white.cgColor
         plusPhotoButton.layer.borderWidth = 3
         self.plusPhotoButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
-        
 
         dismiss(animated: true)
     }
