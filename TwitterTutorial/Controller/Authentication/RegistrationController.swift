@@ -13,6 +13,7 @@ class RegistrationController: UIViewController {
     // MARK: - Properties
 
     private let imagePicker = UIImagePickerController()
+    private var profileImage: UIImage?
 
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -97,10 +98,23 @@ class RegistrationController: UIViewController {
     @objc func handleSignUp() {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
+        guard let fullname = fullNameTextField.text else { return }
+        guard let username = userNameTextField.text else { return }
+        guard let profileImage = profileImage else { return }
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
-                print(error)
+                print(error.localizedDescription)
                 return
+            }
+            guard let uid = result?.user.uid else { return }
+
+            let values = ["email": email, "username": username, "fullname": fullname]
+
+            Database.database(
+                url: "https://twittertutorial-a28f9-default-rtdb.europe-west1.firebasedatabase.app"
+            ).reference().child("users").child(uid).updateChildValues(values) {
+                error, ref in
+                print("haha")
             }
         }
     }
@@ -158,6 +172,7 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         plusPhotoButton.layer.borderWidth = 3
         self.plusPhotoButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
 
+        self.profileImage = profileImage
         dismiss(animated: true)
     }
 }
