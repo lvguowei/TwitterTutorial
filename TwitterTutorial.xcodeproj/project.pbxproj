@@ -22,6 +22,7 @@
 		363CEFD02938A3C200BFD2BD /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CEFCF2938A3C200BFD2BD /* ExploreController.swift */; };
 		363CEFD22938A3D700BFD2BD /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CEFD12938A3D700BFD2BD /* NotificationsController.swift */; };
 		363CEFD42938A3F400BFD2BD /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CEFD32938A3F400BFD2BD /* ConversationsController.swift */; };
+		36BE4EDB2954387F0015CEED /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE4EDA2954387F0015CEED /* Constants.swift */; };
 		36E43933294738E50091D790 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36E43932294738E50091D790 /* GoogleService-Info.plist */; };
 		6F299F2B87A73FE0FAC4AD8A /* Pods_TwitterTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E26CE10E0B85830E5C5EA02 /* Pods_TwitterTutorial.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		363CEFCF2938A3C200BFD2BD /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		363CEFD12938A3D700BFD2BD /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		363CEFD32938A3F400BFD2BD /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
+		36BE4EDA2954387F0015CEED /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		36E43932294738E50091D790 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		81C3CE4368206E98E6486E58 /* Pods-TwitterTutorial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterTutorial.release.xcconfig"; path = "Target Support Files/Pods-TwitterTutorial/Pods-TwitterTutorial.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 			children = (
 				3638EA11293DF04F00EE1613 /* Extensions.swift */,
 				3638EA18293FCC6F00EE1613 /* Utilities.swift */,
+				36BE4EDA2954387F0015CEED /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -174,7 +177,6 @@
 				34356623650A535B1676E954 /* Pods-TwitterTutorial.debug.xcconfig */,
 				81C3CE4368206E98E6486E58 /* Pods-TwitterTutorial.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -301,6 +303,7 @@
 				363CEFCC29389D1F00BFD2BD /* MainTabController.swift in Sources */,
 				3638EA12293DF04F00EE1613 /* Extensions.swift in Sources */,
 				3638EA19293FCC6F00EE1613 /* Utilities.swift in Sources */,
+				36BE4EDB2954387F0015CEED /* Constants.swift in Sources */,
 				3638EA17293E8DCF00EE1613 /* RegistrationController.swift in Sources */,
 				363CEFD22938A3D700BFD2BD /* NotificationsController.swift in Sources */,
 				363CEFCE2938A36D00BFD2BD /* FeedController.swift in Sources */,

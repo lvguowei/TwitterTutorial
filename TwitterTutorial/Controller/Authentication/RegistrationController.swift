@@ -101,22 +101,36 @@ class RegistrationController: UIViewController {
         guard let fullname = fullNameTextField.text else { return }
         guard let username = userNameTextField.text else { return }
         guard let profileImage = profileImage else { return }
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            guard let uid = result?.user.uid else { return }
 
-            let values = ["email": email, "username": username, "fullname": fullname]
+        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else { return }
+        let fileName = NSUUID().uuidString
+        let storageRef = STORAGE_PROFILE_IMAGES.child(fileName)
 
-            Database.database(
-                url: "https://twittertutorial-a28f9-default-rtdb.europe-west1.firebasedatabase.app"
-            ).reference().child("users").child(uid).updateChildValues(values) {
-                error, ref in
-                print("haha")
+        storageRef.putData(imageData) { meta, error in
+            storageRef.downloadURL { url, error in
+                guard let profileImageUrl = url?.absoluteString else { return }
+
+                Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                    guard let uid = result?.user.uid else { return }
+
+                    if let error = error {
+                        print(error.localizedDescription)
+                        return
+                    }
+
+                    let values = [
+                        "email": email, "username": username, "fullname": fullname,
+                        "profileImageUrl": profileImageUrl,
+                    ]
+
+                    REF_USERS.child(uid).updateChildValues(values) {
+                        error, ref in
+                        print("haha")
+                    }
+                }
             }
         }
+
     }
 
     @objc func handleAddProfilePhoto() {
