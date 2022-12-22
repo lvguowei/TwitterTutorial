@@ -102,33 +102,11 @@ class RegistrationController: UIViewController {
         guard let username = userNameTextField.text else { return }
         guard let profileImage = profileImage else { return }
 
-        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else { return }
-        let fileName = NSUUID().uuidString
-        let storageRef = STORAGE_PROFILE_IMAGES.child(fileName)
-
-        storageRef.putData(imageData) { meta, error in
-            storageRef.downloadURL { url, error in
-                guard let profileImageUrl = url?.absoluteString else { return }
-
-                Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                    guard let uid = result?.user.uid else { return }
-
-                    if let error = error {
-                        print(error.localizedDescription)
-                        return
-                    }
-
-                    let values = [
-                        "email": email, "username": username, "fullname": fullname,
-                        "profileImageUrl": profileImageUrl,
-                    ]
-
-                    REF_USERS.child(uid).updateChildValues(values) {
-                        error, ref in
-                        print("haha")
-                    }
-                }
-            }
+        let credentials = AuthCredentials(
+            email: email, password: password, fullname: fullname, username: username,
+            profileImage: profileImage)
+        AuthService.shared.registerUser(credentials: credentials) { error, ref in
+            print("Debug: signup success!")
         }
 
     }
