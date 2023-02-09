@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct User {
     let fullname: String
     let email: String
