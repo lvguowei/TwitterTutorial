@@ -7,10 +7,10 @@
 
 import Firebase
 
-let URL = "https://twittertutorial-a28f9-default-rtdb.europe-west1.firebasedatabase.app"
+let BASE_URL = "https://twittertutorial-a28f9-default-rtdb.europe-west1.firebasedatabase.app"
 
 let DB_REF = Database.database(
-    url: URL
+    url: BASE_URL
 ).reference()
 
 let REF_USERS = DB_REF.child("users")
